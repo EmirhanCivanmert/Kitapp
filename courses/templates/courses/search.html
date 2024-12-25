@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% load static %}
+
+{% block page_title %}
+    Katalog
+{% endblock %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'books/css/style.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-3">
+                {% include "courses/partials/_categories.html" %}
+            </div>
+            <div class="col-9">
+                {% if books|length == 0 %}
+                    <div class="alert alert-warning">Kitap Bulunamadı.</div>
+                {% endif %}
+
+                {% for book in books %}
+                        {% include "courses/partials/_course.html" %}
+                {% endfor %}
+
+            </div>
+        </div>
+      </div>
+{% endblock  %}
+
+{% block js_files %}
+    <script src="{% static 'books/js/script.js'%}"></script>
+{% endblock  %}
+

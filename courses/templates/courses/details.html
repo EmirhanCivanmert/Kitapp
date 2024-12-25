@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% load static %}
+
+{% block page_title %}
+    {{ book.title }}
+{% endblock %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'books/css/style.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-4">
+                <img class="img-fluid rounded" src="{{ book.image.url }}" alt="{{ book.title }}">
+            </div>
+            <div class="col-8">
+                <h1 class="h3">{{ book.title }}</h1>
+                <p>{{ book.subtitle }}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                {{ book.description|safe }}
+                <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
+                    Kitap Özeti
+                </button>  
+                <div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
+                    <div class="offcanvas-header">
+                      <h5 class="offcanvas-title" id="staticBackdropLabel">{{ book.title }}</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                      <div>
+                        {{ book.summary }}
+                      </div>
+                    </div>
+                </div>
+                  
+            </div>
+        </div>
+      </div>
+{% endblock  %}
+
+{% block js_files %}
+    <script src="{% static 'books/js/script.js'%}"></script>
+{% endblock  %}
+

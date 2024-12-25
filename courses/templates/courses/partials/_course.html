@@ -1,0 +1,19 @@
+{% load static %}
+<div class="card mb-3">
+    <div class="row">
+        <div class="col-4">
+            <img class="img-fluid rounded-start" src="{{ book.image.url }}" alt="{{ book.title }}">
+        </div>
+        <div class="col-8">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a href="{% url "book_details" book.slug %}">
+                        {{ book.title }}
+                    </a>
+                </h5>
+                <p class="card-text">{{ book.subtitle }}</p>
+                <p>{{ book.date|date:'SHORT_DATE_FORMAT' }}</p>
+            </div>
+        </div>
+    </div>
+</div>
