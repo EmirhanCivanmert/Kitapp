@@ -30,7 +30,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     '127.0.0.1',                # Geliştirme ortamı için yerel IP
     'localhost',                # Geliştirme ortamı için localhost
-    'kitap-l9kq.onrender.com',  # Render'daki alan adınızı ekledik
+    'kitapp.onrender.com',  # Render'daki alan adınızı ekledik
 ]
 
 
