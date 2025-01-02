@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-9_t1tv4jy%_cijf4ih3*r@4ze%l4&igv)citxwl2=jbbh!-4w^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['kitap.onrender.com','127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['kitap.onrender.com','localhost','127.0.0.1']
 
 
 # Application definition
