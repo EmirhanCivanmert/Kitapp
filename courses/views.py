@@ -9,7 +9,7 @@ def index(request):
     kategoriler = Category.objects.all()
     sliders = Slider.objects.filter(is_active=True)
 
-    return render(request, 'courses/partials/_categories.html', {
+    return render(request, 'courses/index.html', {
         'categories' : kategoriler,
         'books' : kitaplar,
         'sliders': sliders,
