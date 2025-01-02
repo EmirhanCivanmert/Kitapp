@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-9_t1tv4jy%_cijf4ih3*r@4ze%l4&igv)citxwl2=jbbh!-4w^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['kitapp.onrender.com','127.0.0.1','localhost',]
+ALLOWED_HOSTS = ['127.0.0.1','localhost','kitapp.onrender.com',]
 
 
 # Application definition
@@ -125,9 +125,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
-STATIC_URL = 'static/'
+STATIC_URL = "/static/"
 STATICFILES_DIRS = [
-    BASE_DIR / "static",
+    BASE_DIR / "static"
 ]
 
 MEDIA_ROOT = BASE_DIR / "uploads"
