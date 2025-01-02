@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'pages',
     'account',
     'ckeditor',
+    'courseapp',
 ]
 
 MIDDLEWARE = [
