@@ -13,28 +13,53 @@
 
 {% block content %}
 <div style="margin: 50px;" class="col-3">
-    <div class="card">
-        <img src="{% static '/books/img/kitaplik.jpg' %} " class="card-img-top" alt="">
-
-        <div class="card-body">
-            <h5 class="card-title">EMC Kitap Evi</h5>
-            <p class="card-text">EMC Kitap Evine Hoş Geldiniz.</p>
-            <div class="dropdown">
-                <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Sitemizi Keşfedin
-                </button>
-                <ul class="dropdown-menu">
-                  {% if user.is_authenticated %}
-                    <li><a class="dropdown-item" href="kitaplar/">Katalog</a></li>
-                  {% else %}
-                    <li><a class="dropdown-item" href="kitaplar/">Katalog</a></li>
-                    <li><a class="dropdown-item" href="{% url "user_register" %}">Kayıt Ol</a></li>
-                    <li><a class="dropdown-item" href="{% url "user_login" %}">Oturum Aç</a></li>
-                  {% endif %}
-                </ul>
-              </div>
-        </div>
-
+  <div class="card">
+    <img src="{% static '/books/img/kitaplik.jpg' %}" class="card-img-top">
+    <div class="card-body">
+      <h5 class="card-title">EMC Kitap Evi</h5>
+      <p class="card-text">EMC Kitap Evine Hoş Geldiniz.</p>
+      <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+          Sitemizi Keşfedin
+        </button>
+        <ul class="dropdown-menu">
+          {% if user.is_authenticated %}
+            <li><a href="kitaplar/" class="dropdown-item">Katalog</a></li>
+          {% else %}
+            <li><a href="kitaplar/" class="dropdown-item">Katalog</a></li>
+            <li><a href="{% url "user_register" %}" class="dropdown-item">Kayıt Ol</a></li>
+            <li><a href="{% url "user_login" %}" class="dropdown-item">Oturum Aç</a></li>
+          {% endif %}
+        </ul>
+      </div>
     </div>
+  </div>
 </div>
+
+{% if user.is_authenticated %}
+  <div style="margin: 50px;" class="col-5">
+    <div class="accordion accordion-flush" id="accordionFlushExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+            Admin Kitap Ekle
+          </button>
+        </h2>
+        <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body"><a href="{% url "create_book" %}" class="button-link"><button class="btn btn-primary" type="button">Git</button></a></div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+            Admin Kitap Güncelle
+          </button>
+        </h2>
+        <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body"><a href="{% url "book_list" %}" class="button-link"><button class="btn btn-primary" type="button">Git</button></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}
 {% endblock  %}

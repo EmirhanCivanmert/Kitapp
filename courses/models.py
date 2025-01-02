@@ -19,7 +19,7 @@ class Kitap(models.Model):
     isHome = models.BooleanField(default=False)
     slug = models.SlugField(default="",blank=True, null=False,unique=True, db_index=True)
     categories = models.ManyToManyField(Category)
-    summary = models.TextField(default="Bu kitabın özeti anlık olarak bulunmamaktadır.")
+    summary = models.CharField(max_length=10000)
 
     def __str__(self):
         return f"{self.title}"
